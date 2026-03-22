@@ -98,9 +98,10 @@ const links: LinkItem[] = [
 
 const LinksSection = () => {
   return (
-    <section className="py-20 md:py-28 px-4">
+    <section className="py-20 md:py-28 px-4 relative">
       <div className="max-w-2xl mx-auto">
         <div className="reveal text-center mb-12">
+          <img src={passoverSymbols} alt="סימני פסח" className="w-28 md:w-36 mx-auto mb-4 opacity-80" />
           <span className="text-gold text-3xl">🎁</span>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-3" style={{ lineHeight: '1.3' }}>
             הכנו לכם משהו מיוחד
