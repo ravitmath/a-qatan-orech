@@ -4,7 +4,6 @@ import LetterSection from "@/components/LetterSection";
 import LinksSection from "@/components/LinksSection";
 import TriviaSection from "@/components/TriviaSection";
 import QuotesSection from "@/components/QuotesSection";
-import PlaylistSection from "@/components/PlaylistSection";
 import FooterSection from "@/components/FooterSection";
 
 const Index = () => {
@@ -25,9 +24,6 @@ const Index = () => {
 
       <div className="section-divider mx-8" />
       <QuotesSection />
-
-      <div className="section-divider mx-8" />
-      <PlaylistSection />
 
       <div className="section-divider mx-8" />
       <FooterSection />
