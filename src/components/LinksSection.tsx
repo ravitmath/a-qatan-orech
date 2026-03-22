@@ -66,13 +66,6 @@ const links: LinkItem[] = [
     color: "border-gold/20 hover:border-gold/40",
   },
   {
-    title: "יומן הכרת תודה",
-    description: "אפליקציית יומן תודה — כתבו מה עשה לכם טוב היום",
-    url: "https://journey.cloud/he/gratitude-planner",
-    emoji: "📝",
-    color: "border-spring/20 hover:border-spring/40",
-  },
-  {
     title: "שירים ישראליים מעודדים",
     description: "פלייליסט שירים ישראליים חדשים בספוטיפיי",
     url: "https://open.spotify.com/playlist/6Oyqiq4yszpxncmtkJcqfU",
