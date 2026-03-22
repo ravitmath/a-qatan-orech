@@ -6,7 +6,7 @@ const QuizHighlight = () => {
     <section className="py-12 md:py-16 px-4">
       <div className="max-w-xl mx-auto">
         <a
-          href="https://notebooklm.google.com/notebook/9ecdcddf-e615-4e7b-b02f-9f7526495076?artifactId=9fdb68ba-606c-4bfd-b9d2-890eb1311667"
+          href="/חידון_ומצגת_לפסח.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="reveal block rounded-2xl overflow-hidden border-2 border-gold/30 hover:border-gold/50 transition-all duration-300 hover:shadow-[0_8px_40px_-8px_hsl(var(--gold)/0.25)] active:scale-[0.98] group"
