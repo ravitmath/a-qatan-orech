@@ -1,7 +1,13 @@
+import flowersCorner from "@/assets/flowers-corner.png";
+import passoverSymbols from "@/assets/passover-symbols.png";
+
 const LetterSection = () => {
   return (
-    <section id="letter" className="py-20 md:py-28 px-4">
-      <div className="max-w-xl mx-auto">
+    <section id="letter" className="py-20 md:py-28 px-4 relative">
+      {/* Decorative flowers */}
+      <img src={flowersCorner} alt="" className="absolute top-4 right-4 w-24 md:w-36 opacity-60 pointer-events-none" />
+      <img src={flowersCorner} alt="" className="absolute bottom-4 left-4 w-24 md:w-36 opacity-60 pointer-events-none rotate-180" />
+      <div className="max-w-xl mx-auto relative">
         <div className="reveal text-center mb-10">
           <span className="text-gold text-3xl">✉️</span>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-3" style={{ lineHeight: '1.3' }}>

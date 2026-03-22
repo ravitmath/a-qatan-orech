@@ -1,4 +1,5 @@
 import { ExternalLink } from "lucide-react";
+import passoverSymbols from "@/assets/passover-symbols.png";
 
 interface LinkItem {
   title: string;
@@ -87,19 +88,20 @@ const links: LinkItem[] = [
     color: "border-spring/20 hover:border-spring/40",
   },
   {
-    title: "פודקאסט פסח מיוחד",
-    description: "פודקאסט מיוחד שהכנו לכם לחג — להאזנה נעימה",
+    title: "חידון פסח מיוחד",
+    description: "חידון מיוחד שהכנו לכם לחג — בואו תבדקו כמה אתם יודעים!",
     url: "https://notebooklm.google.com/notebook/9ecdcddf-e615-4e7b-b02f-9f7526495076?artifactId=9fdb68ba-606c-4bfd-b9d2-890eb1311667",
-    emoji: "🎙️",
+    emoji: "🧠",
     color: "border-gold/20 hover:border-gold/40",
   },
 ];
 
 const LinksSection = () => {
   return (
-    <section className="py-20 md:py-28 px-4">
+    <section className="py-20 md:py-28 px-4 relative">
       <div className="max-w-2xl mx-auto">
         <div className="reveal text-center mb-12">
+          <img src={passoverSymbols} alt="סימני פסח" className="w-28 md:w-36 mx-auto mb-4 opacity-80" />
           <span className="text-gold text-3xl">🎁</span>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-3" style={{ lineHeight: '1.3' }}>
             הכנו לכם משהו מיוחד
