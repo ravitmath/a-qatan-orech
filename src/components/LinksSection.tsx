@@ -10,45 +10,38 @@ interface LinkItem {
 
 const links: LinkItem[] = [
   {
-    title: "סרטון השראה לחג",
-    description: "סרטון קצר ומרגש על חירות ותקווה",
-    url: "#",
-    emoji: "🎬",
-    color: "border-gold/20 hover:border-gold/40",
-  },
-  {
-    title: "מתכונים לליל הסדר",
-    description: "אוסף מתכונים מיוחדים מהצוות שלנו",
-    url: "#",
-    emoji: "🍽️",
-    color: "border-spring/20 hover:border-spring/40",
-  },
-  {
-    title: "פלייליסט לחג",
-    description: "שירים של אביב, חירות ותקווה",
-    url: "#",
+    title: "מוזיקה מרגיעה",
+    description: "שיר מרגיע להאזנה בספוטיפיי",
+    url: "https://open.spotify.com/track/0kbBGodkSvTkiwSFMYgRNE",
     emoji: "🎵",
     color: "border-blossom/20 hover:border-blossom/40",
   },
   {
-    title: "פעילות חווייתית לצוות",
-    description: "משהו קטן ומשמח לעשות ביחד",
-    url: "#",
+    title: "מתכונים לליל הסדר",
+    description: "מתכונים קלים להכנה לחג",
+    url: "https://www.mako.co.il/food-holiday-recipes/passover/Article-acdef760ab41691026.htm",
+    emoji: "🍽️",
+    color: "border-spring/20 hover:border-spring/40",
+  },
+  {
+    title: "פעילויות חוויתיות מהבית",
+    description: "רעיונות לפעילויות כיפיות לעשות מהבית או ליד מרחב מוגן",
+    url: "https://gamee.co.il/2025/04/03/10-%D7%A4%D7%A2%D7%99%D7%9C%D7%95%D7%99%D7%95%D7%AA-%D7%91%D7%97%D7%95%D7%A4%D7%A9-%D7%A2%D7%9D-%D7%94%D7%99%D7%9C%D7%93%D7%99%D7%9D-%D7%91%D7%91%D7%99%D7%AA-%D7%91%D7%98%D7%99%D7%95%D7%9C-%D7%90/",
     emoji: "🌸",
     color: "border-gold/20 hover:border-gold/40",
   },
   {
     title: "מדריך רגעי נשימה",
-    description: "תרגילי מיינדפולנס קצרים לימי החופשה",
-    url: "#",
+    description: "כלי אישי להפחתת מתח ורגעי שקט",
+    url: "https://fear-friend-dialogue.lovable.app/questionnaire",
     emoji: "🧘",
     color: "border-spring/20 hover:border-spring/40",
   },
   {
-    title: "גלריית רגעים מהשנה",
-    description: "תמונות ורגעים יפים מהפעילות שלנו",
-    url: "#",
-    emoji: "📸",
+    title: "סיפור לילדים",
+    description: "סיפור מיוחד לילדים להבנת והפחתת סטרס",
+    url: "https://gemini.google.com/share/5c9dcbae7261",
+    emoji: "📖",
     color: "border-blossom/20 hover:border-blossom/40",
   },
 ];
@@ -72,7 +65,7 @@ const LinksSection = () => {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`reveal reveal-delay-${Math.min(i + 1, 6)} link-card group block rounded-2xl bg-card border ${link.color} p-6`}
+              className={`reveal reveal-delay-${Math.min(i + 1, 6)} link-card group block rounded-2xl bg-card border ${link.color} p-6 transition-all duration-200 active:scale-[0.97]`}
             >
               <div className="flex items-start gap-4">
                 <span className="text-3xl shrink-0">{link.emoji}</span>
@@ -87,10 +80,6 @@ const LinksSection = () => {
             </a>
           ))}
         </div>
-
-        <p className="reveal reveal-delay-3 text-center text-sm text-muted-foreground mt-8">
-          💡 ניתן לעדכן את הקישורים בכל עת
-        </p>
       </div>
     </section>
   );
