@@ -1,22 +1,12 @@
 import { useState, useCallback, useMemo } from "react";
-import { Plus, Heart, Trash2, Sparkles, CheckCircle, RotateCcw, ArrowLeft } from "lucide-react";
+import { ArrowLeft, Sparkles, RotateCcw, CheckCircle } from "lucide-react";
 
-interface GratitudeEntry {
-  id: string;
-  text: string;
-  date: string;
-  liked: boolean;
-}
-
-const prompts = [
-  "מה גרם לך לחייך היום?",
-  "על מה את/ה אסיר/ת תודה ברגע הזה?",
-  "מי עשה לך טוב לאחרונה?",
-  "איזה רגע קטן שימח אותך השבוע?",
-  "מה דבר טוב שקרה לך לאחרונה?",
-  "על איזה כישרון שלך את/ה מודה?",
-  "מה הדבר הכי יפה שראית היום?",
-  "מי האדם שאת/ה הכי מעריך/ה?",
+const journalPrompts = [
+  "מה גרם לך לחייך היום? 😊",
+  "מי האדם שאת/ה הכי מעריך/ה ולמה? ❤️",
+  "איזה רגע קטן שימח אותך לאחרונה? ✨",
+  "על איזה כישרון או יכולת שלך את/ה מודה? 💪",
+  "מה דבר אחד טוב שהיית רוצה שיקרה מחר? 🌅",
 ];
 
 interface ThemeMatch {
@@ -32,7 +22,7 @@ const themes: ThemeMatch[] = [
     theme: "קשרים אנושיים",
     emoji: "❤️",
     keywords: ["משפחה", "חבר", "אמא", "אבא", "ילד", "ילדים", "בן זוג", "אחות", "אח", "עמית", "צוות", "אנשים", "חיבוק", "שיחה", "ביחד", "יחד", "אהבה", "חברה", "בעל", "אישה"],
-    insight: "הקשרים עם אנשים אחרים הם מקור משמעותי של שמחה ומשמעות בחייך.",
+    insight: "הקשרים עם אנשים אחרים הם מקור משמעותי של שמחה ומשמעות בחייך. את/ה מושך/ת כוח מהאנשים סביבך.",
     suggestions: [
       "🤝 שלחו היום הודעה קצרה לאדם שהזכרתם — ספרו לו שאתם מעריכים אותו",
       "📅 קבעו מפגש קבוע — אפילו 15 דקות בשבוע עם מישהו שעושה לכם טוב",
@@ -42,7 +32,7 @@ const themes: ThemeMatch[] = [
     theme: "רגעים קטנים",
     emoji: "✨",
     keywords: ["רגע", "שקט", "קפה", "בוקר", "שקיעה", "זריחה", "טבע", "פרח", "שמש", "גשם", "מוזיקה", "שיר", "ספר", "נוף", "יופי", "ים", "טיול", "הליכה"],
-    insight: "יש לך יכולת מיוחדת לשים לב לרגעים הקטנים — וזה כוח אמיתי.",
+    insight: "יש לך יכולת מיוחדת לשים לב לרגעים הקטנים — וזה כוח אמיתי שלא כולם מחזיקים בו.",
     suggestions: [
       "📸 צלמו כל יום רגע אחד יפה בטלפון — תיצרו אלבום של דברים טובים",
       "⏸️ הקדישו 3 דקות ביום לעצירה שקטה בלי מסכים — תנו לרגע להיספג",
@@ -52,7 +42,7 @@ const themes: ThemeMatch[] = [
     theme: "הישגים וצמיחה",
     emoji: "🌟",
     keywords: ["הצלחתי", "למדתי", "גאה", "התקדמתי", "יכולת", "כישרון", "עבודה", "פרויקט", "מטרה", "חזק", "אומץ", "התמודדות", "גדלתי", "שיפור", "סיימתי"],
-    insight: "את/ה מזהה צמיחה אישית ומעריך/ה את ההתקדמות של עצמך — זו תכונה חשובה.",
+    insight: "את/ה מזהה צמיחה אישית ומעריך/ה את ההתקדמות של עצמך — זו תכונה שמניעה קדימה.",
     suggestions: [
       "📝 כתבו רשימה של 3 דברים שעשיתם טוב השבוע — קטנים כגדולים",
       "🎯 בחרו מיומנות אחת קטנה שתרצו לפתח ותנו לה 10 דקות ביום",
@@ -69,10 +59,10 @@ const themes: ThemeMatch[] = [
     ],
   },
   {
-    theme: "הכרת תודה כללית",
+    theme: "תקווה ואופטימיות",
     emoji: "🌈",
     keywords: [],
-    insight: "עצם ההיעצרות לחשוב על דברים טובים היא מתנה שנתתם לעצמכם.",
+    insight: "עצם ההיעצרות לחשוב על דברים טובים היא מתנה שנתתם לעצמכם. זה אומר שאתם יודעים לחפש אור.",
     suggestions: [
       "🌅 התחילו כל בוקר עם מחשבה אחת טובה — לפני שפותחים את הטלפון",
       "💌 שתפו את מה שכתבתם עם מישהו קרוב — הכרת תודה מדבקת",
@@ -80,9 +70,8 @@ const themes: ThemeMatch[] = [
   },
 ];
 
-function analyzeEntries(entries: GratitudeEntry[]) {
-  const allText = entries.map((e) => e.text).join(" ").toLowerCase();
-
+function analyzeEntries(answers: string[]) {
+  const allText = answers.join(" ").toLowerCase();
   let bestMatch: ThemeMatch = themes[themes.length - 1];
   let bestScore = 0;
 
@@ -94,65 +83,44 @@ function analyzeEntries(entries: GratitudeEntry[]) {
       bestMatch = theme;
     }
   }
-
   return bestMatch;
 }
 
 const GratitudeSection = () => {
-  const [entries, setEntries] = useState<GratitudeEntry[]>([]);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [answers, setAnswers] = useState<string[]>([]);
   const [input, setInput] = useState("");
-  const [currentPrompt, setCurrentPrompt] = useState(
-    () => prompts[Math.floor(Math.random() * prompts.length)]
-  );
-  const [justAdded, setJustAdded] = useState(false);
-  const [showSummary, setShowSummary] = useState(false);
+  const [finished, setFinished] = useState(false);
 
-  const analysis = useMemo(() => analyzeEntries(entries), [entries]);
+  const analysis = useMemo(() => analyzeEntries(answers), [answers]);
 
-  const addEntry = useCallback(() => {
+  const submitAnswer = useCallback(() => {
     const text = input.trim();
     if (!text) return;
 
-    const entry: GratitudeEntry = {
-      id: crypto.randomUUID(),
-      text,
-      date: new Date().toLocaleDateString("he-IL", {
-        day: "numeric",
-        month: "short",
-        hour: "2-digit",
-        minute: "2-digit",
-      }),
-      liked: false,
-    };
-
-    setEntries((prev) => [entry, ...prev]);
+    const newAnswers = [...answers, text];
+    setAnswers(newAnswers);
     setInput("");
-    setCurrentPrompt(prompts[Math.floor(Math.random() * prompts.length)]);
-    setJustAdded(true);
-    setTimeout(() => setJustAdded(false), 1500);
-  }, [input]);
 
-  const toggleLike = useCallback((id: string) => {
-    setEntries((prev) =>
-      prev.map((e) => (e.id === id ? { ...e, liked: !e.liked } : e))
-    );
-  }, []);
-
-  const removeEntry = useCallback((id: string) => {
-    setEntries((prev) => prev.filter((e) => e.id !== id));
-  }, []);
+    if (newAnswers.length >= journalPrompts.length) {
+      setFinished(true);
+    } else {
+      setCurrentStep((s) => s + 1);
+    }
+  }, [input, answers]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
-      addEntry();
+      submitAnswer();
     }
   };
 
   const restart = useCallback(() => {
-    setEntries([]);
-    setShowSummary(false);
-    setCurrentPrompt(prompts[Math.floor(Math.random() * prompts.length)]);
+    setCurrentStep(0);
+    setAnswers([]);
+    setInput("");
+    setFinished(false);
   }, []);
 
   return (
@@ -167,14 +135,13 @@ const GratitudeSection = () => {
             יומן הכרת תודה
           </h2>
           <p className="text-muted-foreground mt-3 text-lg">
-            רגע של עצירה — על מה את/ה אסיר/ת תודה?
+            5 שאלות קצרות — רגע של עצירה והכרת תודה
           </p>
         </div>
 
-        {showSummary ? (
-          /* ======= SUMMARY VIEW ======= */
+        {finished ? (
+          /* ======= SUMMARY ======= */
           <div className="space-y-5 animate-fade-in">
-            {/* Analysis card */}
             <div className="rounded-2xl bg-card border border-gold/20 p-6 text-center">
               <span className="text-5xl block mb-4">{analysis.emoji}</span>
               <h3 className="font-display text-xl font-bold text-foreground mb-1">
@@ -185,75 +152,74 @@ const GratitudeSection = () => {
               </p>
             </div>
 
-            {/* All entries */}
             <div className="rounded-2xl bg-card border border-border/50 p-5">
               <h4 className="font-body font-bold text-foreground text-sm mb-4 flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-spring" />
-                מה כתבתם ({entries.length})
+                התשובות שלך
               </h4>
-              <div className="space-y-2.5">
-                {[...entries].reverse().map((entry, i) => (
-                  <div
-                    key={entry.id}
-                    className="flex items-start gap-3 text-sm"
-                  >
-                    <span className="text-gold/60 font-body mt-0.5 shrink-0">
-                      {i + 1}.
-                    </span>
-                    <p className="text-foreground/80 font-body leading-relaxed">
-                      {entry.text}
+              <div className="space-y-4">
+                {journalPrompts.map((prompt, i) => (
+                  <div key={i} className="text-sm">
+                    <p className="text-gold/70 font-body text-xs mb-1">{prompt}</p>
+                    <p className="text-foreground/80 font-body leading-relaxed pr-3 border-r-2 border-gold/20">
+                      {answers[i]}
                     </p>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Suggestions */}
             <div className="rounded-2xl bg-card border border-spring/20 p-5">
               <h4 className="font-body font-bold text-foreground text-sm mb-4 flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-gold" />
                 שתי הצעות להמשך הדרך
               </h4>
               <div className="space-y-3">
-                {analysis.suggestions.map((suggestion, i) => (
-                  <div
-                    key={i}
-                    className="rounded-xl bg-spring/5 border border-spring/10 p-4"
-                  >
-                    <p className="text-foreground/80 text-sm font-body leading-relaxed">
-                      {suggestion}
-                    </p>
+                {analysis.suggestions.map((s, i) => (
+                  <div key={i} className="rounded-xl bg-spring/5 border border-spring/10 p-4">
+                    <p className="text-foreground/80 text-sm font-body leading-relaxed">{s}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Actions */}
-            <div className="flex justify-center gap-3 pt-2">
-              <button
-                onClick={() => setShowSummary(false)}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-card border border-border/40 hover:border-gold/40 text-foreground font-body font-semibold text-sm transition-all duration-200 active:scale-[0.97]"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                חזרה לכתיבה
-              </button>
+            <div className="text-center pt-2">
               <button
                 onClick={restart}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gold/10 border border-gold/30 hover:border-gold/50 text-foreground font-body font-semibold text-sm transition-all duration-200 active:scale-[0.97]"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gold/10 border border-gold/30 hover:border-gold/50 text-foreground font-body font-semibold text-sm transition-all duration-200 active:scale-[0.97]"
               >
                 <RotateCcw className="w-4 h-4" />
-                התחלה מחדש
+                מלאו שוב
               </button>
             </div>
           </div>
         ) : (
-          /* ======= WRITING VIEW ======= */
-          <>
-            {/* Input area */}
-            <div className="reveal reveal-delay-1 rounded-2xl bg-card border border-border/50 p-5 mb-6">
-              <p className="text-sm text-gold font-body mb-3 flex items-center gap-2">
-                <Sparkles className="w-3.5 h-3.5" />
-                {currentPrompt}
+          /* ======= QUESTION VIEW ======= */
+          <div className="reveal">
+            {/* Progress */}
+            <div className="flex items-center justify-between mb-3 px-1">
+              <span className="text-xs text-muted-foreground font-body">
+                שאלה {currentStep + 1} מתוך {journalPrompts.length}
+              </span>
+              <div className="flex gap-1.5">
+                {journalPrompts.map((_, i) => (
+                  <div
+                    key={i}
+                    className={`w-2 h-2 rounded-full transition-colors duration-300 ${
+                      i < currentStep
+                        ? "bg-gold"
+                        : i === currentStep
+                        ? "bg-gold/50"
+                        : "bg-muted/30"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-2xl bg-card border border-border/50 p-6">
+              <p className="font-body font-bold text-foreground text-lg mb-5 text-center leading-relaxed">
+                {journalPrompts[currentStep]}
               </p>
               <div className="flex gap-3">
                 <textarea
@@ -261,93 +227,45 @@ const GratitudeSection = () => {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="כתבו כאן..."
-                  rows={2}
+                  rows={3}
                   className="flex-1 bg-transparent border border-border/40 rounded-xl px-4 py-3 text-foreground text-sm font-body placeholder:text-muted-foreground/50 resize-none focus:outline-none focus:border-gold/40 transition-colors"
                   dir="rtl"
+                  autoFocus
                 />
+              </div>
+              <div className="text-center mt-4">
                 <button
-                  onClick={addEntry}
+                  onClick={submitAnswer}
                   disabled={!input.trim()}
-                  className="self-end p-3 rounded-xl bg-gold/10 border border-gold/30 hover:border-gold/50 text-gold transition-all duration-200 active:scale-95 disabled:opacity-30 disabled:cursor-not-allowed"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gold/10 border border-gold/30 hover:border-gold/50 text-foreground font-body font-semibold text-sm transition-all duration-200 active:scale-[0.97] disabled:opacity-30 disabled:cursor-not-allowed"
                 >
-                  <Plus className="w-5 h-5" />
+                  {currentStep + 1 < journalPrompts.length ? (
+                    <>
+                      הבא
+                      <ArrowLeft className="w-4 h-4" />
+                    </>
+                  ) : (
+                    <>
+                      <CheckCircle className="w-4 h-4" />
+                      סיימתי
+                    </>
+                  )}
                 </button>
               </div>
             </div>
 
-            {/* Success feedback */}
-            {justAdded && (
-              <div className="text-center mb-4 animate-fade-in">
-                <span className="text-sm text-spring font-body">
-                  ✨ יפה! נוסף ליומן
-                </span>
+            {/* Previous answers preview */}
+            {answers.length > 0 && (
+              <div className="mt-4 space-y-2">
+                {answers.map((ans, i) => (
+                  <div key={i} className="rounded-lg bg-card/50 border border-border/20 px-4 py-2.5 text-xs">
+                    <span className="text-gold/50">{i + 1}.</span>{" "}
+                    <span className="text-foreground/50">{ans}</span>
+                  </div>
+                ))}
               </div>
             )}
-
-            {/* Entries */}
-            {entries.length > 0 && (
-              <>
-                <div className="space-y-3 mb-6">
-                  {entries.map((entry, i) => (
-                    <div
-                      key={entry.id}
-                      className={`reveal reveal-delay-${Math.min(i + 1, 3)} group rounded-xl bg-card border border-border/30 hover:border-gold/20 p-4 transition-all duration-200`}
-                    >
-                      <p className="text-foreground text-sm font-body leading-relaxed mb-2">
-                        {entry.text}
-                      </p>
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs text-muted-foreground">
-                          {entry.date}
-                        </span>
-                        <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                          <button
-                            onClick={() => toggleLike(entry.id)}
-                            className="p-1.5 rounded-lg hover:bg-blossom/10 transition-colors active:scale-90"
-                          >
-                            <Heart
-                              className={`w-3.5 h-3.5 transition-colors ${
-                                entry.liked
-                                  ? "fill-blossom text-blossom"
-                                  : "text-muted-foreground"
-                              }`}
-                            />
-                          </button>
-                          <button
-                            onClick={() => removeEntry(entry.id)}
-                            className="p-1.5 rounded-lg hover:bg-destructive/10 transition-colors active:scale-90"
-                          >
-                            <Trash2 className="w-3.5 h-3.5 text-muted-foreground" />
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Finish button */}
-                <div className="text-center">
-                  <button
-                    onClick={() => setShowSummary(true)}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gold/10 border border-gold/30 hover:border-gold/50 text-foreground font-body font-semibold text-sm transition-all duration-200 active:scale-[0.97]"
-                  >
-                    <CheckCircle className="w-4 h-4 text-gold" />
-                    סיימתי — הראו לי ניתוח
-                  </button>
-                </div>
-              </>
-            )}
-
-            {/* Empty state */}
-            {entries.length === 0 && (
-              <div className="reveal reveal-delay-2 text-center py-10 rounded-2xl bg-card/50 border border-border/30">
-                <span className="text-4xl block mb-3">🌱</span>
-                <p className="text-muted-foreground text-sm">
-                  עדיין לא כתבתם כלום — זה הרגע להתחיל
-                </p>
-              </div>
-            )}
-          </>
+          </div>
         )}
       </div>
     </section>
