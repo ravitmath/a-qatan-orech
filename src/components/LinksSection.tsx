@@ -38,10 +38,10 @@ const links: LinkItem[] = [
     color: "border-spring/20 hover:border-spring/40",
   },
   {
-    title: "סיפור לילדים",
-    description: "סיפור מיוחד לילדים להבנת והפחתת סטרס",
-    url: "https://gemini.google.com/share/5c9dcbae7261",
-    emoji: "📖",
+    title: "משחקים לימודיים",
+    description: "מאגר משחקים לימודיים שבנה צוות המתי״א",
+    url: "https://sites.google.com/educ.org.il/education-games-regev/%D7%91%D7%99%D7%AA",
+    emoji: "🎮",
     color: "border-blossom/20 hover:border-blossom/40",
   },
 ];
