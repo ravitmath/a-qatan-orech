@@ -24,9 +24,9 @@ const links: LinkItem[] = [
     color: "border-spring/20 hover:border-spring/40",
   },
   {
-    title: "יצירת מנדלות",
-    description: "ציירו מנדלה אונליין בחינם — להרגעה ויצירתיות",
-    url: "https://www.yo-yoo.co.il/mandala",
+    title: "צביעת מנדלות",
+    description: "צביעת מנדלות אינטראקטיבית אונליין — להרגעה ויצירתיות",
+    url: "https://www.yo-yoo.co.il/coloring_online/online.php?film=164",
     emoji: "🎨",
     color: "border-blossom/20 hover:border-blossom/40",
   },
@@ -64,6 +64,34 @@ const links: LinkItem[] = [
     url: "https://sites.google.com/educ.org.il/matya-regev/%D7%9C%D7%9E%D7%99%D7%93%D7%94-%D7%9E%D7%A8%D7%97%D7%95%D7%A7-%D7%A4%D7%93%D7%92%D7%95%D7%92%D7%99%D7%94-%D7%95%D7%A2%D7%99%D7%93%D7%9B%D7%95%D7%A0%D7%99%D7%9D",
     emoji: "💻",
     color: "border-gold/20 hover:border-gold/40",
+  },
+  {
+    title: "יומן הכרת תודה",
+    description: "כלי פשוט ויעיל להפחתת מתח — כתבו 3 דברים טובים ביום",
+    url: "https://www.tombarnea.co.il/%D7%99%D7%95%D7%9E%D7%9F-%D7%94%D7%9B%D7%A8%D7%AA-%D7%AA%D7%95%D7%93%D7%94-%D7%9B%D7%9C%D7%99-%D7%A4%D7%A9%D7%95%D7%98-%D7%95%D7%99%D7%A2%D7%99%D7%9C-%D7%9C%D7%94%D7%A4%D7%97%D7%AA%D7%AA-%D7%9E/",
+    emoji: "📝",
+    color: "border-spring/20 hover:border-spring/40",
+  },
+  {
+    title: "שירים ישראליים מעודדים",
+    description: "פלייליסט שירים ישראליים חדשים בספוטיפיי",
+    url: "https://open.spotify.com/playlist/6Oyqiq4yszpxncmtkJcqfU",
+    emoji: "🎶",
+    color: "border-gold/20 hover:border-gold/40",
+  },
+  {
+    title: "פודקאסט מרגיע",
+    description: "מדיטציות מודרכות בעברית להעלאת התדר ורגיעה",
+    url: "https://raisingthevibrations.podbean.com/",
+    emoji: "🎧",
+    color: "border-blossom/20 hover:border-blossom/40",
+  },
+  {
+    title: "גינון ביתי למתחילים",
+    description: "מדריך מקיף לגידול צמחים בבית — פשוט ומרגיע",
+    url: "https://chochmat-haadama.co.il/%D7%92%D7%99%D7%93%D7%95%D7%9C-%D7%A6%D7%9E%D7%97%D7%99%D7%9D-%D7%91%D7%91%D7%99%D7%AA-%D7%9E%D7%93%D7%A8%D7%99%D7%9A-%D7%9C%D7%9E%D7%AA%D7%97%D7%99%D7%9C%D7%99%D7%9D-%D7%91%D7%92%D7%99%D7%A0%D7%95/",
+    emoji: "🌿",
+    color: "border-spring/20 hover:border-spring/40",
   },
 ];
 
