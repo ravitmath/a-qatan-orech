@@ -1,4 +1,5 @@
 import { ExternalLink } from "lucide-react";
+import passoverSymbols from "@/assets/passover-symbols.png";
 
 interface LinkItem {
   title: string;
