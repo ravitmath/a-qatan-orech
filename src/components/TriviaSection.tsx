@@ -112,15 +112,15 @@ const TriviaSection = () => {
     <section className="py-20 md:py-28 px-4">
       <div className="max-w-xl mx-auto">
         <div className="reveal text-center mb-10">
-          <span className="text-3xl">🤔</span>
+          <span className="text-3xl">😂</span>
           <h2
             className="font-display text-3xl md:text-4xl font-bold text-foreground mt-3"
             style={{ lineHeight: "1.3" }}
           >
-            טריוויה של פסח
+            טריוויית פסח בצל אזעקות
           </h2>
           <p className="text-muted-foreground mt-3 text-lg">
-            כמה טוב אתם מכירים את החג?
+            כי אם לא נצחק — נבכה. אז בואו נצחק 🤷
           </p>
         </div>
 
