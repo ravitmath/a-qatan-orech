@@ -7,12 +7,12 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "1rem",
+      padding: "1.5rem",
       screens: { "2xl": "1400px" },
     },
     extend: {
       fontFamily: {
-        heading: ['Rubik', 'sans-serif'],
+        display: ['"Frank Ruhl Libre"', 'serif'],
         body: ['Heebo', 'sans-serif'],
       },
       colors: {
@@ -28,10 +28,10 @@ export default {
         accent: { DEFAULT: "hsl(var(--accent))", foreground: "hsl(var(--accent-foreground))" },
         popover: { DEFAULT: "hsl(var(--popover))", foreground: "hsl(var(--popover-foreground))" },
         card: { DEFAULT: "hsl(var(--card))", foreground: "hsl(var(--card-foreground))" },
-        lavender: { DEFAULT: "hsl(var(--lavender))", light: "hsl(var(--lavender-light))" },
-        turquoise: { DEFAULT: "hsl(var(--turquoise))", light: "hsl(var(--turquoise-light))" },
-        sunshine: { DEFAULT: "hsl(var(--sunshine))", light: "hsl(var(--sunshine-light))" },
-        "rose-custom": { DEFAULT: "hsl(var(--rose-custom))", light: "hsl(var(--rose-light))" },
+        gold: { DEFAULT: "hsl(var(--gold))", light: "hsl(var(--gold-light))", dark: "hsl(var(--gold-dark))" },
+        spring: { DEFAULT: "hsl(var(--spring))", light: "hsl(var(--spring-light))" },
+        blossom: "hsl(var(--blossom))",
+        cream: "hsl(var(--cream))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
