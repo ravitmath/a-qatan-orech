@@ -38,7 +38,7 @@ const HeroSection = () => {
 
       <div className="relative z-10 text-center px-6 max-w-2xl">
         <p className="font-body text-sm tracking-[0.3em] uppercase text-gold-light mb-6 hero-animate hero-delay-1">
-          מתי״א • פסח תשפ״ו
+          מתי״א רג״ב • פסח תשפ״ו
         </p>
 
         <h1 className="font-display text-5xl md:text-7xl font-bold leading-[1.1] mb-6 hero-animate hero-delay-2" style={{ lineHeight: '1.15' }}>
