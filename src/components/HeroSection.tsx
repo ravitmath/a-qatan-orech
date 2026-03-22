@@ -44,7 +44,7 @@ const HeroSection = () => {
         <h1 className="font-display text-5xl md:text-7xl font-bold leading-[1.1] mb-6 hero-animate hero-delay-2" style={{ lineHeight: '1.15' }}>
           <span className="gold-gradient-text">חג של חירות</span>
           <br />
-          <span className="text-foreground text-3xl md:text-4xl font-light">לצוותים שמחזיקים עולמות</span>
+          <span className="text-white text-3xl md:text-4xl font-light">לצוותים שמחזיקים עולמות</span>
         </h1>
 
         <p className="text-lg md:text-xl text-foreground/70 max-w-md mx-auto leading-relaxed hero-animate hero-delay-3">
