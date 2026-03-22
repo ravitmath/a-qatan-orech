@@ -56,7 +56,7 @@ const HeroSection = () => {
         <div className="hero-animate hero-delay-4 mt-10">
           <a
             href="#letter"
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-gold/30 text-gold font-body font-medium transition-all duration-300 hover:bg-gold/10 hover:border-gold/50 hover:shadow-[0_0_30px_-5px_hsl(var(--gold)/0.3)] active:scale-95"
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-gold-light/40 text-gold-light font-body font-medium transition-all duration-300 hover:bg-gold/10 hover:border-gold-light/60 hover:shadow-[0_0_30px_-5px_hsl(var(--gold)/0.3)] active:scale-95"
           >
             גללי למטה ✨
           </a>
