@@ -55,8 +55,15 @@ const FooterSection = () => {
           </a>
         </div>
 
-        <p className="text-muted-foreground text-xs">
-          נוצר באהבה עבור צוותי המתי״א 💛
+        <p className="text-muted-foreground text-sm leading-relaxed max-w-sm mx-auto">
+          נוצר באהבה עבור כל צוותי החינוך המיוחד, והרגיל,
+          <br />
+          הנותנים מעצמם ועושים למען הצלחת התלמידים
+        </p>
+        <p className="text-foreground/60 text-sm mt-3 font-body">
+          באהבה והערכה,
+          <br />
+          <span className="font-bold text-gold">מתי״א רגב</span>
         </p>
       </div>
     </section>
