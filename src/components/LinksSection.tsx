@@ -87,10 +87,10 @@ const links: LinkItem[] = [
     color: "border-spring/20 hover:border-spring/40",
   },
   {
-    title: "פודקאסט פסח מיוחד",
-    description: "פודקאסט מיוחד שהכנו לכם לחג — להאזנה נעימה",
+    title: "חידון פסח מיוחד",
+    description: "חידון מיוחד שהכנו לכם לחג — בואו תבדקו כמה אתם יודעים!",
     url: "https://notebooklm.google.com/notebook/9ecdcddf-e615-4e7b-b02f-9f7526495076?artifactId=9fdb68ba-606c-4bfd-b9d2-890eb1311667",
-    emoji: "🎙️",
+    emoji: "🧠",
     color: "border-gold/20 hover:border-gold/40",
   },
 ];
