@@ -1,8 +1,9 @@
 import { Share2 } from "lucide-react";
+import flowersTop from "@/assets/flowers-top.png";
 
 const FooterSection = () => {
   const share = () => {
-    const text = encodeURIComponent("חג פסח שמח מצוות המתי״א! 💛🌸\nהכנו לכם משהו מיוחד:\n\n");
+    const text = encodeURIComponent("חג פסח שמח מצוות מתי״א רג״ב! 💛🌸\nהכנו לכם משהו מיוחד:\n\n");
     const url = encodeURIComponent(window.location.href);
     window.open(`https://wa.me/?text=${text}${url}`, "_blank");
   };
@@ -14,7 +15,7 @@ const FooterSection = () => {
       }} />
 
       <div className="reveal relative z-10 max-w-md mx-auto">
-        <p className="font-display text-5xl mb-6">🌸</p>
+        <img src={flowersTop} alt="" className="w-32 md:w-40 mx-auto mb-4 opacity-75" />
 
         <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4" style={{ lineHeight: '1.3' }}>
           <span className="gold-gradient-text">חג פסח שמח</span>
