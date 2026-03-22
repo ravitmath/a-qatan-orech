@@ -38,16 +38,16 @@ const HeroSection = () => {
 
       <div className="relative z-10 text-center px-6 max-w-2xl">
         <p className="font-body text-sm tracking-[0.3em] uppercase text-gold-light mb-6 hero-animate hero-delay-1">
-          מתי״א • פסח תשפ״ו
+          מתי״א רג״ב • פסח תשפ״ו
         </p>
 
         <h1 className="font-display text-5xl md:text-7xl font-bold leading-[1.1] mb-6 hero-animate hero-delay-2" style={{ lineHeight: '1.15' }}>
           <span className="gold-gradient-text">חג של חירות</span>
           <br />
-          <span className="text-foreground text-3xl md:text-4xl font-light">לצוותים שמחזיקים עולמות</span>
+          <span className="text-white text-3xl md:text-4xl font-light">לצוותים שמחזיקים עולמות</span>
         </h1>
 
-        <p className="text-lg md:text-xl text-foreground/70 max-w-md mx-auto leading-relaxed hero-animate hero-delay-3">
+        <p className="text-lg md:text-xl text-white/70 max-w-md mx-auto leading-relaxed hero-animate hero-delay-3">
           בימים מורכבים אלו, אנחנו עוצרים רגע להגיד תודה.
           <br />
           חג פסח שמח ומלא אור.
@@ -56,7 +56,7 @@ const HeroSection = () => {
         <div className="hero-animate hero-delay-4 mt-10">
           <a
             href="#letter"
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-gold/30 text-gold font-body font-medium transition-all duration-300 hover:bg-gold/10 hover:border-gold/50 hover:shadow-[0_0_30px_-5px_hsl(var(--gold)/0.3)] active:scale-95"
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-gold-light/40 text-gold-light font-body font-medium transition-all duration-300 hover:bg-gold/10 hover:border-gold-light/60 hover:shadow-[0_0_30px_-5px_hsl(var(--gold)/0.3)] active:scale-95"
           >
             גללי למטה ✨
           </a>
