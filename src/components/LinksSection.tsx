@@ -67,8 +67,8 @@ const links: LinkItem[] = [
   },
   {
     title: "יומן הכרת תודה",
-    description: "כלי פשוט ויעיל להפחתת מתח — כתבו 3 דברים טובים ביום",
-    url: "https://www.tombarnea.co.il/%D7%99%D7%95%D7%9E%D7%9F-%D7%94%D7%9B%D7%A8%D7%AA-%D7%AA%D7%95%D7%93%D7%94-%D7%9B%D7%9C%D7%99-%D7%A4%D7%A9%D7%95%D7%98-%D7%95%D7%99%D7%A2%D7%99%D7%9C-%D7%9C%D7%94%D7%A4%D7%97%D7%AA%D7%AA-%D7%9E/",
+    description: "אפליקציית יומן תודה — כתבו מה עשה לכם טוב היום",
+    url: "https://journey.cloud/he/gratitude-planner",
     emoji: "📝",
     color: "border-spring/20 hover:border-spring/40",
   },
