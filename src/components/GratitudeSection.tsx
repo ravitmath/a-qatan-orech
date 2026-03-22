@@ -137,6 +137,9 @@ const GratitudeSection = () => {
           <p className="text-muted-foreground mt-3 text-lg">
             5 שאלות קצרות — רגע של עצירה והכרת תודה
           </p>
+          <p className="text-gold/70 text-sm mt-2 font-body">
+            💡 שווה לענות! בסוף תקבלו ניתוח אישי מעמיק וטיפים מעשיים להמשך
+          </p>
         </div>
 
         {finished ? (
