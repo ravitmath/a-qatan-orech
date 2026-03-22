@@ -1,8 +1,8 @@
 import { useReveal } from "@/hooks/useReveal";
 import HeroSection from "@/components/HeroSection";
-import LetterSection from "@/components/LetterSection";
-import GreetingSection from "@/components/GreetingSection";
+import LetterAndGreeting from "@/components/LetterAndGreeting";
 import QuizHighlight from "@/components/QuizHighlight";
+import FlowerDivider from "@/components/FlowerDivider";
 import LinksSection from "@/components/LinksSection";
 import GratitudeSection from "@/components/GratitudeSection";
 import TriviaSection from "@/components/TriviaSection";
@@ -16,28 +16,25 @@ const Index = () => {
     <div ref={revealRef} className="overflow-x-hidden">
       <HeroSection />
 
-      <div className="section-divider mx-8" />
-      <LetterSection />
+      <FlowerDivider />
+      <LetterAndGreeting />
 
-      <div className="section-divider mx-8" />
-      <GreetingSection />
-
-      <div className="section-divider mx-8" />
+      <FlowerDivider />
       <QuizHighlight />
 
-      <div className="section-divider mx-8" />
+      <FlowerDivider />
       <LinksSection />
 
-      <div className="section-divider mx-8" />
+      <FlowerDivider />
       <GratitudeSection />
 
-      <div className="section-divider mx-8" />
+      <FlowerDivider />
       <TriviaSection />
 
-      <div className="section-divider mx-8" />
+      <FlowerDivider />
       <QuotesSection />
 
-      <div className="section-divider mx-8" />
+      <FlowerDivider />
       <FooterSection />
     </div>
   );
