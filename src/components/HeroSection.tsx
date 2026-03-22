@@ -47,7 +47,7 @@ const HeroSection = () => {
           <span className="text-white text-3xl md:text-4xl font-light">לצוותים שמחזיקים עולמות</span>
         </h1>
 
-        <p className="text-lg md:text-xl text-foreground/70 max-w-md mx-auto leading-relaxed hero-animate hero-delay-3">
+        <p className="text-lg md:text-xl text-white/70 max-w-md mx-auto leading-relaxed hero-animate hero-delay-3">
           בימים מורכבים אלו, אנחנו עוצרים רגע להגיד תודה.
           <br />
           חג פסח שמח ומלא אור.
