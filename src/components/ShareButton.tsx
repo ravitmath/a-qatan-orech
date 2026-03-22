@@ -10,7 +10,7 @@ const ShareButton = () => {
   return (
     <button
       onClick={share}
-      className="fixed bottom-20 left-4 z-50 w-12 h-12 rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/20 flex items-center justify-center transition-all duration-300 hover:shadow-xl hover:shadow-primary/30 active:scale-90"
+      className="fixed bottom-20 left-4 z-50 w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center transition-all duration-300 hover:shadow-[0_0_30px_-3px_hsl(var(--primary)/0.6)] active:scale-85 btn-shine"
       aria-label="שתפי"
     >
       <Share2 className="w-5 h-5" />
