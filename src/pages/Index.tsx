@@ -2,7 +2,7 @@ import { useReveal } from "@/hooks/useReveal";
 import HeroSection from "@/components/HeroSection";
 import LetterSection from "@/components/LetterSection";
 import LinksSection from "@/components/LinksSection";
-import GallerySection from "@/components/GallerySection";
+import TriviaSection from "@/components/TriviaSection";
 import QuotesSection from "@/components/QuotesSection";
 import PlaylistSection from "@/components/PlaylistSection";
 import FooterSection from "@/components/FooterSection";
@@ -21,7 +21,7 @@ const Index = () => {
       <LinksSection />
 
       <div className="section-divider mx-8" />
-      <GallerySection />
+      <TriviaSection />
 
       <div className="section-divider mx-8" />
       <QuotesSection />
