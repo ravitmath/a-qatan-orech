@@ -1,6 +1,6 @@
 import { useReveal } from "@/hooks/useReveal";
 import HeroSection from "@/components/HeroSection";
-import GreetingSection from "@/components/GreetingSection";
+import LetterAndGreeting from "@/components/LetterAndGreeting";
 import FlowerDivider from "@/components/FlowerDivider";
 import LinksSection from "@/components/LinksSection";
 import GratitudeSection from "@/components/GratitudeSection";
@@ -17,7 +17,7 @@ const Index = () => {
       <HeroSection />
 
       <FlowerDivider />
-      <GreetingSection />
+      <LetterAndGreeting />
 
       <FlowerDivider />
       <LinksSection />
@@ -30,9 +30,6 @@ const Index = () => {
 
       <FlowerDivider />
       <QuotesSection />
-
-      <FlowerDivider />
-      <LetterSection />
 
       <FlowerDivider />
       <FooterSection />
