@@ -6,7 +6,6 @@ import LinksSection from "@/components/LinksSection";
 import GratitudeSection from "@/components/GratitudeSection";
 import TriviaSection from "@/components/TriviaSection";
 import QuotesSection from "@/components/QuotesSection";
-import LetterSection from "@/components/LetterSection";
 import FooterSection from "@/components/FooterSection";
 
 const Index = () => {
