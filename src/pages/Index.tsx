@@ -1,12 +1,12 @@
 import { useReveal } from "@/hooks/useReveal";
 import HeroSection from "@/components/HeroSection";
-import LetterAndGreeting from "@/components/LetterAndGreeting";
-import QuizHighlight from "@/components/QuizHighlight";
+import GreetingSection from "@/components/GreetingSection";
 import FlowerDivider from "@/components/FlowerDivider";
 import LinksSection from "@/components/LinksSection";
 import GratitudeSection from "@/components/GratitudeSection";
 import TriviaSection from "@/components/TriviaSection";
 import QuotesSection from "@/components/QuotesSection";
+import LetterSection from "@/components/LetterSection";
 import FooterSection from "@/components/FooterSection";
 
 const Index = () => {
@@ -17,7 +17,7 @@ const Index = () => {
       <HeroSection />
 
       <FlowerDivider />
-      <QuizHighlight />
+      <GreetingSection />
 
       <FlowerDivider />
       <LinksSection />
@@ -32,7 +32,7 @@ const Index = () => {
       <QuotesSection />
 
       <FlowerDivider />
-      <LetterAndGreeting />
+      <LetterSection />
 
       <FlowerDivider />
       <FooterSection />
