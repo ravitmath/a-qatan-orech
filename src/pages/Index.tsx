@@ -17,9 +17,6 @@ const Index = () => {
       <HeroSection />
 
       <FlowerDivider />
-      <LetterAndGreeting />
-
-      <FlowerDivider />
       <QuizHighlight />
 
       <FlowerDivider />
@@ -33,6 +30,9 @@ const Index = () => {
 
       <FlowerDivider />
       <QuotesSection />
+
+      <FlowerDivider />
+      <LetterAndGreeting />
 
       <FlowerDivider />
       <FooterSection />
